@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.Properties;
 import org.apache.hadoop.hive.serde2.SerDe;
 import org.apache.hadoop.hive.serde2.SerDeException;
+import org.apache.hadoop.hive.serde2.SerDeSpec;
 import org.apache.hadoop.hive.serde2.objectinspector.*;
 import org.apache.hadoop.hive.serde2.typeinfo.TypeInfo;
 import org.apache.hadoop.hive.serde2.typeinfo.TypeInfoFactory;
@@ -31,6 +32,7 @@ import org.apache.hadoop.io.Writable;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.hive.serde2.SerDeStats;
+import org.apache.hadoop.hive.serde.serdeConstants;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspector.Category;
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.BooleanObjectInspector;
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.ByteObjectInspector;
@@ -60,6 +62,7 @@ import org.apache.hadoop.hive.serde2.typeinfo.PrimitiveTypeInfo;
  * 
  * @author rcongiu
  */
+@SerDeSpec(schemaProps={serdeConstants.LIST_COLUMNS, serdeConstants.LIST_COLUMN_TYPES})
 public class JsonSerDe implements SerDe {
 
     public static final Log LOG = LogFactory.getLog(JsonSerDe.class);
